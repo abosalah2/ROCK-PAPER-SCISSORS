@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+<h1>Rock, Paper, Scissors</h1>
+
+    <script>
+
+let sam = prompt("What is your choose Rock, Scissors, or Paper ?");
+let ask = sam.toLowerCase()
+
+
+let selectItem = ["rock", "scissors", "paper"];
+let computer_play = function () {
+let selected = selectItem[Math.floor(Math.random() * 3)];
+return selected;
+};
+
+let pick = computer_play()
+
+
+
+
+if (ask == "rock" && pick == "scissors" || ask == "scissors" && pick == "paper" || ask == "paper" && pick == "rock" ) {
+  alert ("You are winner!")
+}
+ else if (ask == "rock" && pick == "paper" || ask == ("paper") && pick == "scissors" || ask == "scissors" && pick == "rock" ){
+   alert("You Lose " +pick+ " beats " +ask )
+ }
+else if (ask == pick){
+  alert("you are tie, try again!")
+}
+else{
+  alert("Invalid entry")
+}
+    </script>
+
+</div>
+
+</body>
+</html>
