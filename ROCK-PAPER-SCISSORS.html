@@ -9,19 +9,20 @@
 <body>
 <h1>Rock, Paper, Scissors</h1>
 
-    <script>
-
-let sam = prompt("What is your choose Rock, Scissors, or Paper ?");
-let ask = sam.toLowerCase()
+  <script>
 
 
-let selectItem = ["rock", "scissors", "paper"];
-let computer_play = function () {
+const computer_play = function () {
+  let selectItem = ["rock", "scissors", "paper"];
 let selected = selectItem[Math.floor(Math.random() * 3)];
 return selected;
-};
+  };
 
-let pick = computer_play()
+
+const playRoundOfGame = function() {
+let sam = prompt("What is your choose Rock, Scissors, or Paper ?");
+let ask = sam.toLowerCase();
+let pick = computer_play();
 
 
 
@@ -38,9 +39,18 @@ else if (ask == pick){
 else{
   alert("Invalid entry")
 }
+
+};
+
+
+playRoundOfGame();
+playRoundOfGame();
+playRoundOfGame();
+
+
     </script>
 
-</div>
+
 
 </body>
 </html>
