@@ -19,6 +19,10 @@ return selected;
   };
 
 
+let comScore = 0;
+let playScore = 0;
+
+
 const playRoundOfGame = function() {
 let sam = prompt("What is your choose Rock, Scissors, or Paper ?");
 let ask = sam.toLowerCase();
@@ -26,11 +30,12 @@ let pick = computer_play();
 
 
 
-
 if (ask == "rock" && pick == "scissors" || ask == "scissors" && pick == "paper" || ask == "paper" && pick == "rock" ) {
-  alert ("You are winner!")
+    playScore = playScore + 1
+    alert ("You are winner!")
 }
  else if (ask == "rock" && pick == "paper" || ask == ("paper") && pick == "scissors" || ask == "scissors" && pick == "rock" ){
+   comScore = comScore + 1
    alert("You Lose " +pick+ " beats " +ask )
  }
 else if (ask == pick){
@@ -46,6 +51,18 @@ else{
 playRoundOfGame();
 playRoundOfGame();
 playRoundOfGame();
+playRoundOfGame();
+playRoundOfGame();
+
+if (comScore > playScore) {
+alert("Hardluck the Computer wins this time. Score is "+ playScore+ " for you and the Computer is " +comScore );
+}
+else if (comScore = playScore) {
+  alert("You are tie, let's try another game!")
+}
+else {
+  alert ("Oh congratulations you have won! your score is   "+playScore+ " for you and the Computer is "+comScore);
+}
 
 
     </script>
