@@ -10,7 +10,7 @@ let pick = computer_play();
 var comScore = 0;
 var playScore = 0;
 
-    while (comScore < 5 || playScore < 0){
+     while (comScore < 5 && playScore < 5){
 
       const keys = document.querySelector('#keys');
       keys.addEventListener('click', function(e) {
