@@ -6,25 +6,33 @@ let selected = selectItem[Math.floor(Math.random() * 3)];
 return selected;
   };
 
-let pick = computer_play();
+
+
+const keys = document.querySelector('#keys');
 var comScore = 0;
 var playScore = 0;
 
-     while (comScore < 5 && playScore < 5){
 
-      const keys = document.querySelector('#keys');
       keys.addEventListener('click', function(e) {
-        const rock = e.target.className
-        if(e.target.className == 'rock' && pick == "scissors" || e.target.className == 'scissors' && pick == "paper" || e.target.className == 'paper' &&pick == "rock") {
-        document.getElementById("choice").innerHTML = "Alright you won!";
-        playScore++
-        document.getElementById("scorePlayer").innerHTML = playScore;
-      } else if(e.target.className == 'rock' && pick == "paper" || e.target.className == 'paper' && pick == "scissors" || e.target.className == 'scissors' &&pick == "rock") {
-        document.getElementById("choice").innerHTML = "You have lost! Computer choice was: " + pick;
-        comScore++
-        document.getElementById("scoreCom").innerHTML = comScore;
-      } else if(e.target.className == pick) {
-        document.getElementById("choice").innerHTML = "You are tie!";
+        if(e.target.className == 'rock' && computer_play() == "scissors" || e.target.className == 'scissors' && computer_play() == "paper" || e.target.className == 'paper' &&computer_play() == "rock") {
+            document.getElementById("choice").innerHTML = "Alright you win!";
+            playScore++
+            document.getElementById("scorePlayer").innerHTML = playScore;
+              if (playScore > 4) {
+                  document.getElementById("choice").innerHTML = "Wow! you have won the computer, good job!";
+                   keys.style.display = "none"
+                                  }
+
+          } else if(e.target.className == 'rock' && computer_play() == "paper" || e.target.className == 'paper' && computer_play() == "scissors" || e.target.className == 'scissors' &&computer_play() == "rock") {
+                  document.getElementById("choice").innerHTML = "You have lost! Computer choice was: " + computer_play();
+                  comScore++
+                 document.getElementById("scoreCom").innerHTML = comScore;
+                     if (comScore > 4) {
+                        document.getElementById("choice").innerHTML = "Oh the computer has won! refresh the page and try again";
+                        keys.style.display = "none";
+                                        }
+          } else if(e.target.className == pick) {
+              document.getElementById("choice").innerHTML = "You are tie!";
+
     }
   })
-}
